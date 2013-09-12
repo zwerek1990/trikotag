@@ -1,0 +1,49 @@
+*{
+   font-family:  Arial,Tahoma, sans-serif;
+   margin:0;
+   padding:0;
+}
+body{
+    max-height:500px;
+}
+h2{
+    display:block;
+    font-size: 1.6em;
+    border:none;
+    border-bottom: 1px solid #666;
+    margin: 15px 0;
+    padding: 0px 0px 5px;
+}
+label{
+    font-weight:bold;
+}
+.mail input,textarea{
+   display:block;
+   width:100%;
+   padding:8px;
+   background: #fff;
+   outline: none;
+   border:none;
+   margin-bottom:10px;
+   font-style: italic;
+   border: 1px solid #AAA;
+}
+.mail textarea{
+   min-height: 100px;
+}
+.mail textarea.info{
+   min-height: 200px;
+}
+.mail input[type="submit"]{
+    background:#111;
+    color:#eee;
+    display:block;
+    font-size: 1.6em;
+    font-style: normal;
+    cursor:pointer;
+}
+@media all and (max-width : 320px){
+  .mail input[type="submit"]{
+      font-size: 1em;
+   }
+}
