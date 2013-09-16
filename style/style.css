@@ -345,6 +345,11 @@ input,textarea,select{
 	margin: 0 1% 1%;
 	overflow: hidden;
 }
+.s_gallery li a{
+	display: block;
+	max-height: 200px;
+	overflow: hidden;
+}
 .s_gallery li .img{
 	display: block;
 	max-height: 200px;
@@ -712,10 +717,19 @@ input,textarea,select{
 .alert{
 	background: #F1690F;
 }
+.alert:hover{
+	background: #F1690F;
+}
 .success{
 	background: #2ECC71;
 }
+.success:hover{
+	background: #2ECC71;
+}
 .error{
+	background: #E74C3C;
+}
+.error:hover{
 	background: #E74C3C;
 }
 
@@ -1433,20 +1447,45 @@ input,textarea,select{
 /*------ страница Товара ------*/
 .breadcrumbs, .about{
 	padding-left: 1%;
-	margin-bottom: 10px;
+	margin: 20px 0;
+	color: #666;
 }
 .breadcrumbs a,.about a{
-	color: #666;
+	color: #888;
 }
 .breadcrumbs a:hover,.about a:hover{
 	text-decoration: underline;
 }
-#good_image{
-	width: 49%;
-	height: auto;
+
+/* мелкие слева от больой */
+#good_preview{
+	width: 14%;
 	float:left;
 	margin-right: 1%;
 }
+#good_preview .s_gallery{
+	width: 100%;
+	
+}
+#good_preview .s_gallery li{
+	float: none;
+	width: 100%;
+	margin: 0 0 5px 0;
+}
+
+
+/* большая картинка */
+#good_image{
+	width: 34%;
+	float:left;
+	margin-right: 1%;
+}
+#good_image a img{
+	width: 100%;
+}
+
+
+/* Блок всей инфы справа */
 #good_desc{
 	width: 50%;
 	float:left;
@@ -1463,6 +1502,11 @@ input,textarea,select{
 	padding-right: 10px;
 }
 
+
+/* другие цвета */
+#good_desc .s_gallery li{
+	width: 14.5%;
+}
 #good_desc .s_gallery li a{
 	display: block;
 	max-height: 130px;
