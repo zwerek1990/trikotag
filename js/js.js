@@ -1,10 +1,11 @@
 function deleteItem(id){
 	console.log('удалим',id)
 }
-
+function changeSize(){
+	console.log('запрос о новой цене')
+}
 function addToCart(){
-	console.log('добавим в корзину',id)
-
+	console.log('добавим в корзину')
 }
 
 var $window;
@@ -95,32 +96,33 @@ $(document).ready(function(){
 		}); 
  	});	
 
+   	function hover_change(element){
+   		var temp = element.getAttribute('data-hover');
+   		element['data-hover'] = element.src;
+   		element.src = temp;
+   		console.log('change',element.src,element['data-hover'])
+   	}
+
+
 	/*------ Работа с корзиной ------*/
 	
 	// выбор размера
 	$('#size').change(function(){
-		console.log("change to",$(this).val());
-		$('.to_cart').addClass('active');
+		changeSize();	
+		var price = $('#product_price').html();	
+		$('.to_cart').addClass('active')
+			.html('Добавить в заказ<span>Всего за '+price+'</span>')
 	})
 
 
 	$('.to_cart').on('click',function(){
 		$this = $(this);
 		
-		if(!$this.hasClass('active')){
-			var temp = $this.html();
-			$this.html('<span>сначала вам нужно</span>выбрать размер');
-			
-			setTimeout(function(){
-				$this.html(temp);
-				console.log(temp);
-			},1000)
-
-			return 0;
+		if($this.hasClass('active')){
+			addToCart($this);
+			$this.html('Товар в корзине<span><a href="/cart.php">посмотреть свою корзину</a></span>');
 		}
-		alert('gotcha')
-		addToCart($this)
-		
+
 	});
 
 

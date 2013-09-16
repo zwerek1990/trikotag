@@ -63,7 +63,7 @@ a {
 	cursor: pointer;
 }
 a:hover {
-	/*color: #3498DB;*/
+	color: #006DB6;
 	text-decoration: underline;
 }
 /*----Переходы при 1280, 960, 480---------*/
@@ -772,6 +772,16 @@ input,textarea,select{
 	color: #000;
 }
 
+@media all and (max-width: 960px){
+	.categs ul.grid > li:nth-child(odd){ 
+		width: 40%;
+		margin: 0 5%;
+	}
+	.categs ul.grid > li:nth-child(odd){ 
+		text-align: right;
+		color:#111;
+	}
+}
 
 /* Логотип */
 #main_logo img{
@@ -1445,19 +1455,8 @@ input,textarea,select{
 
 
 /*------ страница Товара ------*/
-.breadcrumbs, .about{
-	padding-left: 1%;
-	margin: 20px 0;
-	color: #666;
-}
-.breadcrumbs a,.about a{
-	color: #888;
-}
-.breadcrumbs a:hover,.about a:hover{
-	text-decoration: underline;
-}
 
-/* мелкие слева от больой */
+/* мелкие слева от большой */
 #good_preview{
 	width: 14%;
 	float:left;
@@ -1490,43 +1489,109 @@ input,textarea,select{
 	width: 50%;
 	float:left;
 }
+
+
+/* Логотип */
+#product_brand .logo .hide{display: none;}
+#product_brand .logo:hover img{	display: none;}
+#product_brand .logo:hover .hide{display: block;}
+#product_brand a{
+	font-size: .9em;
+	text-align: center;
+	text-decoration: underline;
+}
+#product_brand a span{
+	font-weight: bold;
+}
+
+/* Назание продукта*/
+#good_desc .product_title{
+	margin-top:70px;
+}
+#good_desc .product_title a{
+	text-decoration: underline;
+}
 #good_desc h1{
 	margin: 0px 0 10px;
+	font-size: 2em;
 	line-height: 1em;
 }
-#good_desc p {
-	margin:10px 0;
+#good_desc p{
+	/*font-size: .9em;*/
 }
 #good_desc p span{
 	font-weight: bold;
 	padding-right: 10px;
 }
+#product_price{
+	text-align: center;
+	margin: 10px 0 10px;
+}
 
 
-/* другие цвета */
+/* другие виды товаров */
 #good_desc .s_gallery li{
 	width: 14.5%;
 }
 #good_desc .s_gallery li a{
 	display: block;
-	max-height: 130px;
+	max-height: 120px;
 	overflow: hidden;
 }
+
+/* кнопка добавить в заказ  */
 #good_desc .price{
 	padding: 20px;
+	background: #888;
 }
+#good_desc .price:hover{
+	background: #777;
+	content: "Выберите размер";
+}
+#good_desc .price a{
+	color: #111;
+	text-decoration: underline;
+}
+#good_desc .price a:hover{
+	color: #fff;
+}	
+
+#good_desc .price.active{
+	background-color:#2980B9; 
+}
+#good_desc .price.active b{
+	display: none;
+}
+#good_desc .price.active:hover{
+	background-color:#3498DB; 
+}
+
+/* спросить о товаре */
+#good_desc .ask{
+	padding: 5px;
+	font-size: 0.75em;
+}
+#good_desc .ask{
+	color: #888;
+	background: #333;
+}
+#good_desc .ask:hover{
+	color:#eee;
+	background: #222;
+}
+
+/* Треугольник кнопки */
 #good_desc .price:after{
     content: '';
     position: absolute;
     left: -16px;
-    /*margin-left: -7px;*/
     top: 50%;
     margin-top:0px;
     width: 0;
     height: 0;
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
-    border-right: 16px solid #2980B9;
+    border-right: 16px solid #888;
     -webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
 	-ms-transition: all 0.2s;
@@ -1534,27 +1599,64 @@ input,textarea,select{
 	transition: all 0.2s;
 }
 #good_desc .price:hover:after{
+	 border-right-color:#777;
+}
+#good_desc .price.active:after{
+	 border-right-color:#2980B9;
+}
+#good_desc .price.active:hover:after{
     border-right-color: #3498DB;
 }
-#good_desc .ask{
-	padding: 5px;
-	font-size: 0.75em;
-	color: #888;
-	background: #ddd;
-}
-#good_desc .ask:hover{
-	background: #ccc;
+
+
+/* мелкие ссылки */
+.about{
+	padding-left: 1%;
+	margin: 20px 0;
 	color: #666;
 }
-#good_desc .ask{
-	color:#ccc;
-	background: #333;
+.about a{
+	color: #888;
 }
-#good_desc .ask:hover{
-	color:#eee;
-	background: #222;
+.about a:hover{
+	text-decoration: underline;
 }
+
+
 @media all and (max-width: 960px){
+	#good_preview,
+	#good_image,
+	#good_desc{
+		display: :block;
+		width: 100%;
+		float: none;
+	}
+	#good_desc p,
+	#good_desc .to_cart,
+	#good_desc .ask{
+		margin: 0 10% 0;
+		width: auto;
+	}
+	#good_desc .product_title p{
+		margin: 0;
+	}
+	#good_preview .s_gallery li {
+		width: 16.5%;
+		max-height: 100px;
+		float: left;
+		margin: 0;
+	}
+	#product_brand{text-align: center;}
+	#product_brand img{margin: 0 auto;}
+	.product_title{
+		margin: 70px 10% 0;
+	}
+	.about{
+		text-align: center;
+	}
+	#good_desc .price:after{
+		border:none;
+	}
 
 }
 
