@@ -120,7 +120,7 @@ $(document).ready(function(){
 		
 		if($this.hasClass('active')){
 			addToCart($this);
-			$this.html('Товар в корзине<span><a href="/cart.php">посмотреть свою корзину</a></span>');
+			$this.html('Товар в корзине<span><a href="/cart.php">посмотрите свою корзину</a></span>');
 		}
 
 	});

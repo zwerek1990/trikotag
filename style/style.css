@@ -1540,7 +1540,7 @@ input,textarea,select{
 	content: "Выберите размер";
 }
 #good_desc .price a{
-	color: #111;
+	color: #e5e5e5;
 	text-decoration: underline;
 }
 #good_desc .price a:hover{
