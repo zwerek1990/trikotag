@@ -1,21 +1,60 @@
 function deleteItem(id){
 	console.log('удалим',id)
 }
-function changeSize(){
-	console.log('запрос о новой цене')
+function ajaxAddToCart(id,size){
+	console.log('добавим в корзину',id,size);
+	
+	id = id||0;
+	size=size||0;
+	if (!id || !size){ return 0 };
+
+	return $.ajax({
+	  	type: "POST",
+	  	url: "/ajax/addToCart.php",
+	  	data: { 'id': id, 'size': size },
+	  	dataType: "html"
+	}).done(function(message) {
+	  	console.log('ajax add successfully done with ',message);
+	});
 }
-function addToCart(){
-	console.log('добавим в корзину')
+
+function ajaxDeleteFromCart(id,size){
+	console.log('удалим из корзины',id);
+	
+	id = id||0;
+	size = size||0;
+	if (!id || !size){ return 0 };
+
+	return $.ajax({
+	  	type: "POST",
+	  	url: "/ajax/deleteFromCart.php",
+	  	data: { 'id': id, 'size': size },
+	  	dataType: "html"
+	}).done(function(message) {
+	  	console.log('ajax delete successfully done with ',message);
+	  	return 1;
+	});
+}
+function ajaxUpdateCart(id,size,num){
+	console.log("меняем количество ",id,size,' на ',num);
+	
+	id = id || 0;
+	size = size || 0;
+	num = num || 0;
+	if (!id || !size){ return 0 };
+
+	$.ajax({
+		type: "POST",
+		url: "ajax/updateCart.php",
+		data: { 'id': id, 'size': size, 'num':num },
+		dataType:"html"
+	}).done(function(message){
+		console.log('ajax update successfully to ',num);
+	})
+
 }
 
 var $window;
-
-$(window).load(function(){
-	
-
-});
-
-
 /*--------Загрузка DOM---------------------------------------------------------------------*/
 $(document).ready(function(){
 
@@ -105,31 +144,55 @@ $(document).ready(function(){
 
 
 	/*------ Работа с корзиной ------*/
-	
+	var timeout_button_active;
 	// выбор размера
 	$('#size').change(function(){
-		changeSize();	
 		var price = $('#product_price').html();	
-		$('.to_cart').addClass('active')
+		clearTimeout(timeout_button_active);
+		$('.to_cart').removeClass('success')
+			.addClass('active')
 			.html('Добавить в заказ<span>Всего за '+price+'</span>')
 	})
 
 
+	// добавить в карзину
 	$('.to_cart').on('click',function(){
 		$this = $(this);
 		
 		if($this.hasClass('active')){
-			addToCart($this);
-			$this.html('Товар в корзине<span><a href="/cart.php">посмотрите свою корзину</a></span>');
+			ajaxAddToCart($this.data('id'),$('#size').val());
+			$this.removeClass('active').addClass('success').html('Товар в корзине<span><a href="/cart.php">посмотрите свою корзину</a></span>');
+
+			timeout_button_active = setTimeout(function(){
+				$('.to_cart').removeClass('success')
+					.addClass('active')
+					.html('Добавить в заказ<span>Всего за '+$('#product_price').html()+'</span>')
+			},2000)
 		}
 
 	});
 
+	// изменение количества
+	$('.cart_num').change(function(){
+		$this = $(this);
+		$item = $this.parent().parent('.cart_desc').parent('li');
 
-   	// анимация удаления
+		id = $item.data('id');
+		size = $item.data('size');
+
+		// поправляем ввод (если неправильный то 0)
+		var num = $this.val();
+		num = isNaN(parseInt(num)) ? 0 : parseInt(num);
+		$this.val(num);
+
+		ajaxUpdateCart(id,size,num);
+	})
+
+   	// удаления
    	$('.delete').on('click',function(){
 		var $deleting_item = $(this).parent('li');
-   		$deleting_item.slideUp('slow')
+   		ajaxDeleteFromCart($deleting_item.data('id'),$deleting_item.data('size'))
+   		$deleting_item.slideUp('slow');
    	})
 
 });

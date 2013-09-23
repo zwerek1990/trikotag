@@ -9,6 +9,21 @@
 <?php
 	include($_SERVER['DOCUMENT_ROOT']."/components/topline.php");
 ?> 
+<?php
+session_start();
+if (isset($_SESSION['cart'])){
+		foreach ($_SESSION['cart'] as $id => $article) {
+			foreach($article as $size => $num){
+
+			}
+		}
+}
+?>
+<div class="cart_anchor">
+	<a href="/cart.php">
+		<p>В корзине товаров на <span> 12312 р.</span></p>
+	</a>
+</div>
 <div class="sheet clearfix">
 	<div id="good_preview">
 		<ul class="s_gallery clearfix">
@@ -68,8 +83,8 @@
 			</select>
 		</p>
 		
-		<a class="button price to_cart">Сначала выберите размер</a>
-		<a class="button ask" href="ask.php?name=Брюки Quat 1&price=100">задать вопрос по товару</a>
+		<a class="button price  to_cart" data-id="<?=rand(1,32);?>">Сначала выберите размер</a>
+		<a class="button ask"  href="ask.php?name=Брюки Quat 1&price=100">задать вопрос по товару</a>
 		
 		<?php
 		$count_diff = rand(0,6);
@@ -102,6 +117,7 @@
 		include($_SERVER['DOCUMENT_ROOT']."/components/goods_gallery.php");
 	?> 
 </div>
+
 <?php 
 	include($_SERVER['DOCUMENT_ROOT']."/components/production.php");
 ?>

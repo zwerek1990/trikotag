@@ -11,25 +11,33 @@
 ?> 
 <div class="sheet">
 	<h1>Сделать заказ</h1>
-	<p>при оформлении заказа указанные вещи  и вы можете их забрать в выбранном</p>
+	<p>при оформлении заказа вещи будут даставлены в выбранным магазин, где вы и сможете их забрать</p>
 	<ul id="cart">
-
-		<li id="692114" class="clearfix">
-	       	<a class="delete" onclick="deleteItem('692114')" ><span>удалить товар из заказа</span></a>
-			<a class="img" href="/pants.php">
-				<img src="img/collections/traditions/thumbs/2.jpg">
-			</a>
-			<div class="cart_desc">
-				<h3>Брючки QUAT 44</h3>
-		       	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		       	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		       	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		       	consequat. </p>
-		       	<p><input type="text" size="2" value="1" maxlength="3" name="qty_692114" onkeyup="calcTotal()" > шт. по <span class="cart_price">449 р.</span></p>
-			</div>
-		</li>
+<?php
+session_start(); 
+if (isset($_SESSION['cart'])){
+foreach ($_SESSION['cart'] as $id => $article) {
+	foreach($article as $size => $num){
+		echo '<li data-id="'.$id.'" data-size="'.$size.'" class="clearfix">
+   	<a class="delete"><span>удалить товар из заказа</span></a>
+	<a class="img" href="/pants.php">
+		<img src="img/collections/traditions/thumbs/'.$id.'.jpg">
+	</a>
+	<div class="cart_desc">
+		<h3>Брючки QUAT '.$id.'</h3>
+       	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+       	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+       	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+       	consequat. </p>
+       	<p>размер: <b>'.$size.'</b></p>
+       	<p><input class="cart_num" type="text" size="2" value="'.$num['num'].'" maxlength="3"> шт. по <span class="cart_price">'.($id).' р.</span></p>
+	</div>
+</li>';
+	}
+}
+}
+?>
 	</ul>
-
 	<div class="summary">
 		
 	</div>

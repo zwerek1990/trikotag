@@ -1447,6 +1447,37 @@ input,textarea,select{
 
 /*------ страница Товара ------*/
 
+/* квардатик ссылки на корзину */
+.cart_anchor{
+	position: absolute;
+	right:0;
+	top:90px;
+	width: 100px;
+	height: 100px;
+	color: #111;
+	background-color:#2ECC71;
+	background-image: url('img/cart.png');
+	background-position: 50% 10%;
+	background-size: 30px;
+	background-repeat: no-repeat;
+	font-size: .75em;
+	z-index: 8;
+}
+.cart_anchor p{
+	margin-top:30px;
+}
+.cart_anchor a{
+	padding: 5px;
+	width: 100%;
+	height: 100%;
+	display: block;
+	color: inherit;
+	text-align: center;
+}
+.cart_anchor span{
+	font-weight: bold;
+}
+
 /* мелкие слева от большой */
 #good_preview{
 	width: 14%;
@@ -1530,14 +1561,14 @@ input,textarea,select{
 	overflow: hidden;
 }
 
+
 /* кнопка добавить в заказ  */
 #good_desc .price{
 	padding: 20px;
 	background: #888;
 }
 #good_desc .price:hover{
-	background: #777;
-	content: "Выберите размер";
+	background: #999;
 }
 #good_desc .price a{
 	color: #e5e5e5;
@@ -1550,26 +1581,26 @@ input,textarea,select{
 #good_desc .price.active{
 	background-color:#2980B9; 
 }
-#good_desc .price.active b{
-	display: none;
-}
 #good_desc .price.active:hover{
 	background-color:#3498DB; 
 }
 
-/* спросить о товаре */
-#good_desc .ask{
-	padding: 5px;
-	font-size: 0.75em;
+#good_desc .price.success{
+	background-color:#2ECC71; 
+	color:#111;
+	cursor: default;
 }
-#good_desc .ask{
-	color: #888;
-	background: #333;
+#good_desc .price.success a{
+	color:#2A6D46;
 }
-#good_desc .ask:hover{
-	color:#eee;
-	background: #222;
+#good_desc .price.success a:hover{
+	color:#111;
 }
+#good_desc .price.success:hover{
+	background-color:#2ECC71; 
+}
+
+
 
 /* Треугольник кнопки */
 #good_desc .price:after{
@@ -1585,7 +1616,7 @@ input,textarea,select{
     border-right: 16px solid #888;
 }
 #good_desc .price:hover:after{
-	 border-right-color:#777;
+	 border-right-color:#999;
 }
 
 /*  Треугольник активной кнопки */
@@ -1594,6 +1625,29 @@ input,textarea,select{
 }
 #good_desc .price.active:hover:after{
     border-right-color: #3498DB;
+}
+
+/*  Треугольник кнопки успеха*/
+#good_desc .price.success:after{
+	border-right-color:#2ECC71; 
+}
+#good_desc .price.success:hover:after{
+	border-right-color:#2ECC71; 
+}
+
+
+/* спросить о товаре */
+#good_desc .ask{
+	padding: 5px;
+	font-size: 0.75em;
+}
+#good_desc .ask{
+	color: #888;
+	background: #333;
+}
+#good_desc .ask:hover{
+	color:#eee;
+	background: #222;
 }
 
 
@@ -1830,7 +1884,7 @@ input,textarea,select{
 #cart > li a.img{
 	display: block;
 	width: 19%;
-	height: 150px;
+	height: 200px;
 	float: left;
 	overflow: hidden;
 	margin-right: 1%;
