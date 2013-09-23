@@ -1883,18 +1883,25 @@ input,textarea,select{
 }
 #cart > li a.img{
 	display: block;
-	width: 19%;
-	height: 200px;
+	width: 100px;
+	height: 100px;
 	float: left;
 	overflow: hidden;
-	margin-right: 1%;
-}
-#cart .cart_desc{
-	float:left;
-	width: 80%;
+	margin-right: 10px;
 }
 #cart > li .img img{
 	width: 100%;
+}
+#cart .prop{
+	font-size: 0.75em;
+}
+#cart .prop span{
+	background: #2980B9;
+	padding: 3px 6px;
+	color: #eee;
+}
+#cart .cart_desc p{
+
 }
 #cart input{
 	display: inline;
@@ -1903,9 +1910,11 @@ input,textarea,select{
 	margin-right: 20px;
 }
 #cart > li span.cart_price{
-	font-size: 2em;
+	font-size: 1.5em;
 	margin-left: 20px;
 }
+
+/* удалить из корзины */
 #cart .delete{
 	position: absolute;
 	top:5px;
@@ -1933,6 +1942,8 @@ input,textarea,select{
 	line-height: 1em;
 	color:#C71F1F;
 }
+
+
 @media screen and (max-width: 480px){
 	#cart .cart_desc,
 	#cart > li a.img{
@@ -1940,7 +1951,7 @@ input,textarea,select{
 		float:none;
 	}
 	#cart > li a.img{
-		max-height: 200px;
+		height:200px;
 	}
 	#cart > li a.img img{
 		margin-top: -50px;

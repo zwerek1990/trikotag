@@ -25,11 +25,9 @@ foreach ($_SESSION['cart'] as $id => $article) {
 	</a>
 	<div class="cart_desc">
 		<h3>Брючки QUAT '.$id.'</h3>
-       	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-       	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-       	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-       	consequat. </p>
-       	<p>размер: <b>'.$size.'</b></p>
+		<div class="prop">
+			<p>размер: <span>'.$size.'</span></p>
+		</div>
        	<p><input class="cart_num" type="text" size="2" value="'.$num['num'].'" maxlength="3"> шт. по <span class="cart_price">'.($id).' р.</span></p>
 	</div>
 </li>';
