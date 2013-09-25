@@ -306,6 +306,7 @@ input,textarea,select{
 	color: #fff;
 }
 
+
 /* Кнопки */
 .button{
 	display: block;
@@ -329,6 +330,7 @@ input,textarea,select{
 	font-weight: normal;
 	color: #D1E7F7;
 }
+
 
 /* Маленькая галерея */
 .s_gallery{
@@ -557,7 +559,6 @@ input,textarea,select{
 }
 
 
-
 /* широкая секция */
 .section{
 	position: relative;
@@ -693,6 +694,7 @@ input,textarea,select{
 	}
 }
 
+
 /* Сообщения */
 .message{
 	display: block;
@@ -776,11 +778,13 @@ input,textarea,select{
 	}
 }
 
+
 /* Логотип */
 #main_logo img{
 	display: block;
 	width: 100%;
 }
+
 
 /* Верхняя полоска */
 .topline{
@@ -1023,8 +1027,6 @@ input,textarea,select{
 
 
 
-
-
 /*
 Далее идет описание конкретных страниц
 ######################################################
@@ -1033,7 +1035,7 @@ input,textarea,select{
 
 
 
-/*------ страница Карта с магазинами -----*/
+/* ------ страница Карта с магазинами ----- */
 #map{
 	position: fixed;
 	top: 0;
@@ -1094,7 +1096,7 @@ input,textarea,select{
 
 
 
-/*------ страница Новости ------*/
+/* ------ страница Новости ------ */
 .news li{
 	padding:30px 2%;
 	font-size: 18px;
@@ -1116,7 +1118,7 @@ input,textarea,select{
 
 
 
-/*------ страница О компании ------*/
+/* ------ страница О компании ------ */
 .slider_text{
 	position: absolute;
 	top:20px;
@@ -1201,7 +1203,7 @@ input,textarea,select{
 
 
 
-/*------ страница История компании ------*/
+/* ------ страница История компании ------ */
 .company-timeline-toc{
 	padding:5px 0;
 	margin: 5px 0;
@@ -1232,7 +1234,7 @@ input,textarea,select{
 
 
 
-/*------ страница Галерея моделей ------*/
+/* ------ страница Галерея моделей ------ */
 
 /* Срелки навигации */
 .arrow{
@@ -1436,7 +1438,7 @@ input,textarea,select{
 }
 
 
-/*--------- страница Категория товаров -------*/
+/* ------ страница Категория товаров ------ */
 
 
 /* конкретные категории */
@@ -1445,7 +1447,7 @@ input,textarea,select{
 }
 
 
-/*------ страница Товара ------*/
+/* ------ страница Товара ------ */
 
 /* квардатик ссылки на корзину */
 .cart_anchor{
@@ -1514,9 +1516,6 @@ input,textarea,select{
 
 
 /* Логотип */
-#product_brand .logo .hide{display: none;}
-#product_brand .logo:hover img{	display: none;}
-#product_brand .logo:hover .hide{display: block;}
 #product_brand a{
 	font-size: .9em;
 	text-align: center;
@@ -1525,6 +1524,16 @@ input,textarea,select{
 #product_brand a span{
 	font-weight: bold;
 }
+#product_brand .logo .hide{
+	display: none;
+}
+#product_brand .logo:hover img{
+	display: none;
+}
+#product_brand .logo:hover .hide{
+	display: inline;
+}
+
 
 /* Назание продукта*/
 #good_desc .product_title{
