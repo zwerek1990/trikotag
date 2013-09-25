@@ -197,6 +197,24 @@ a:hover {
 ######################################################
 */
 
+.c_traditions{
+	background-color: #704F40 !important;
+	color:#eee !important;
+}
+.c_inside-out{
+	background-color: #333 !important;
+	color:#eee !important;
+}
+.c_school2013{
+	background-color: #634577 !important;
+	color:#fff !important;
+}
+.c_vesna2013{
+	background-color: #0FC0C0 !important;
+	color:#eee !important;
+}
+
+
 
 /* Текст */
 h1{
@@ -1608,7 +1626,6 @@ input,textarea,select{
 #good_desc .price.success:hover{
 	background-color:#2ECC71; 
 }
-
 
 
 /* Треугольник кнопки */

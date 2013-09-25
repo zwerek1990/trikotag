@@ -61,10 +61,10 @@
 	</div>
 
 	<ul class="grid clearfix">
-		<li><a data-fancybox-type="iframe" class="button" href="/inside-out.php">Inside-Out</a></li>
-		<li><a data-fancybox-type="iframe" class="button" href="school.php">Traditions</a></li>
-		<li><a data-fancybox-type="iframe" class="button" href="school.php">Школьная форма</a></li>
-		<li><a data-fancybox-type="iframe" class="button" href="school.php">Весна</a></li>
+		<li><a data-fancybox-type="iframe" class="button c_inside-out" href="/inside-out.php">Inside-Out</a></li>
+		<li><a data-fancybox-type="iframe" class="button c_traditions" href="school.php">Traditions</a></li>
+		<li><a data-fancybox-type="iframe" class="button c_school2013" href="school.php">Школьная форма</a></li>
+		<li><a data-fancybox-type="iframe" class="button c_vesna2013" href="school.php">Весна</a></li>
 	</ul>
 </div>	
 
