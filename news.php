@@ -11,7 +11,7 @@
 ?>  
 <div class="section clearfix" style="background-color: #AF414F;">
    <div class="img">
-      <img src="/img/news/label.png">
+      <img src="/img/section/label.png">
       <p class="small" >в укции участвует</p>
       <p>г.Чебоксары</p>
    </div>
@@ -26,7 +26,7 @@
 
  <div id="news_store12" class="section parallax clearfix" data-speed="10" style="background:url(/img/news/К.Маркса.jpg)">
    <div class="img">
-      <img class="ico" src="/style/img/logo200w.png"/>
+      <img class="ico" src="/img/section/logo200w.png"/>
       <p>Чебоксарский трикотаж</p>
       <p class="small" >бренду больше полвека</p>
    </div>
@@ -63,7 +63,7 @@
 </div>
  <div class="section clearfix" style="background-color: #44A385;">
    <div class="img">
-      <img src="/img/news/shirt.png">
+      <img src="/img/section/shirt.png">
    </div>
    <div class="quote">
       <h1><a href="/new.php">3 + 1 = 4</a></h1>

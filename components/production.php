@@ -4,7 +4,7 @@
     	<p>Чулочно- трикотажной фабрики</p>
   	</div>
 	<ul class="grid clearfix">
-		<li class="g1of4">
+		<li>
 			<h3>Мужчинам</h3>
 			<ul>
 				<li><a href="/category.php">Куртки</a></li>

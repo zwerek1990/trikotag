@@ -27,7 +27,6 @@
 		детское белье из хлопчатобумажной пряжи; 
 		спортивный трикотаж - костюмы, брюки, шорты; 
 		джемперы, халаты, юбки, блузки.</p> 
-
 	</div>
 
 
@@ -37,11 +36,11 @@
 
 <div class="blueberry">
   	<ul class="slides">
-   	<li><img src="/img/back/slider/1.jpg" /></li>
-   	<li><img src="/img/back/slider/2.jpg" /></li>
-   	<li><img src="/img/back/slider/3.jpg" /></li>
-   	<li><img src="/img/back/slider/4.jpg" /></li>
-   	<li><img src="/img/back/slider/5.jpg" /></li>
+   	<li><img src="/img/slider/1.jpg" /></li>
+   	<li><img src="/img/slider/2.jpg" /></li>
+   	<li><img src="/img/slider/3.jpg" /></li>
+   	<li><img src="/img/slider/4.jpg" /></li>
+   	<li><img src="/img/slider/5.jpg" /></li>
   	</ul>
 	<div class="slider_text">
 		<ul class="clearfix">

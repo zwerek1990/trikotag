@@ -12,7 +12,7 @@
 
 <div id="pants" class="section parallax clearfix" data-speed="10">
 	<div class="img">
-		<img class="ico" src="/style/img/logo200w.png"/>
+		<img class="ico" src="/img/section/logo200w.png"/>
 		<p>Чебоксарский трикотаж</p>
 		<p class="small" >бренду больше полвека</p>
 	</div>

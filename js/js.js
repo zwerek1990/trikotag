@@ -129,9 +129,9 @@ $(document).ready(function(){
      var $parallax_obj = $(this); // Назначаем объект
                     
       	$(window).scroll(function() {
-			var yPos = -($window.scrollTop() / 20); 
-			var coords = '50% '+ yPos + 'px';
-			$parallax_obj.css({ backgroundPosition: coords });
+			var yPos = -($window.scrollTop() / 10); 
+			var coords = yPos + 'px';
+			$parallax_obj.css({ backgroundPositionY: coords });
 		}); 
  	});	
 

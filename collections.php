@@ -79,7 +79,7 @@
 <ul id="reviews">
 	<li class="section clearfix">
 		<div class="img">
-			<img src="/img/people/1.png">
+			<img src="/img/reviews/1.png">
 			<p>Семенова Ирина</p>
 			<p class="small" >г. Чебоксары</p>
 		</div>
@@ -91,7 +91,7 @@
 
 	<li class="section clearfix">
 		<div class="img">
-			<img src="/img/people/2.png">
+			<img src="/img/reviews/2.png">
 			<p>Кириллова Анна</p>
 			<p class="small" >г. Новочебоксарск</p>
 		</div>
@@ -103,7 +103,7 @@
 
    <li class="section clearfix">
 		<div class="img">
-			<img src="/img/people/3.png">
+			<img src="/img/reviews/3.png">
 			<p>Андрей и Ольга Мироновы</p>
 			<p class="small" >г. Нижний Новгород</p>
 		</div>
