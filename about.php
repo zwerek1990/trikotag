@@ -56,43 +56,43 @@
 
 	<div class="quote">
 <?php 
-if (isset($_SESSION['message'])){
-	if ($_SESSION['message'] == 'success') {
+if (isset($_SESSION['user']['message'])){
+	if ($_SESSION['user']['message'] == 'success') {
 		//если сообщение успешно отправленно
 		echo " <h1>Спасибо за предложение</h1>
 		<p>Ваше запрос	 уже на пути к нам.</p>" ;
 
-	}else if($_SESSION['message'] == 'error') {
+	}else if($_SESSION['user']['message'] == 'error') {
 		//если есть ошибка
 		echo "<h1>Будем сотрудничать?</h1>
 		<p>Наверняка у вас есть интересное предложение, которое сможет нас заинтересовать.</p>
 		<form class=\"clearfix\" action=\"/mail/partner.php\" method=\"POST\">";
 		
-		if( !empty($_SESSION['name']) ){
+		if( !empty($_SESSION['user']['name']) ){
 			echo "<span>Мы хотели бы знать кто вы</span>
 			<input type=\"text\" required name=\"name\" 
 				placeholder=\"например: ООО 'Активная компания' \" 
-				value=\"".(isset($_SESSION['name'])?$_SESSION['name']:'')."\"/>";
+				value=\"".(isset($_SESSION['user']['name'])?$_SESSION['user']['name']:'')."\"/>";
 		}else{
 			echo "<div class=\"message success\"><p>Пожалуйста, представьтесь</p></div>
 			<input type=\"text\" required name=\"name\" 
 				placeholder=\"например: ООО 'Активная компания' \" />";
 		}
 
-		if( !empty($_SESSION['contact']) ){
+		if( !empty($_SESSION['user']['contact']) ){
 			echo "<span>И как с вами связаться</span>
 			<input type=\"text\" required name=\"contact\" 
 				placeholder=\"например: +7 900 800 70 60, company@mail.com \" 
-				value=\"".(isset($_SESSION['contact'])?$_SESSION['contact']:'')."\"/>";
+				value=\"".(isset($_SESSION['user']['contact'])?$_SESSION['user']['contact']:'')."\"/>";
 		}else{
 			echo "<div class=\"message success\"><p>Укажите ваши контактные данные</p></div>
 			<input type=\"text\" required name=\"contact\" 
 				placeholder=\"например: +7 900 800 70 60, company@mail.com \"  />";
 		}
 
-		if( !empty($_SESSION['text']) ){
+		if( !empty($_SESSION['user']['text']) ){
 			echo "<span>Ваше ультра - выгодное предложение</span>
-			<textarea rows=\"6\" name=\"text\"/>".(isset($_SESSION['text'])?$_SESSION['text']:'')."</textarea>";
+			<textarea rows=\"6\" name=\"text\"/>".(isset($_SESSION['user']['text'])?$_SESSION['user']['text']:'')."</textarea>";
 		}else{
 			echo "<div class=\"message success\"><p>А где же ваше предложение?</p></div>
 			<textarea rows=\"6\" name=\"text\"/></textarea>	";
@@ -104,7 +104,7 @@ if (isset($_SESSION['message'])){
 		echo " <h1>Упс, похоже, что у нас какая-то неполадка.</h1>
 		<p>Пока мы занимаемся её устранением, позвоните по телефону  (8352) 30-94-33 и обсудите сотрудничество с нами</p>";
 	}
-	unset($_SESSION['message']);
+	unset($_SESSION['user']['message']);
 
 }else{
 	//нет сообщения
@@ -115,13 +115,13 @@ if (isset($_SESSION['message'])){
 		<span>Мы хотели бы знать кто вы</span>
 		<input type=\"text\" required name=\"name\" 
 			placeholder=\"например: ООО 'Активная компания' \" 
-			value=\"".(isset($_SESSION['name'])?$_SESSION['name']:'')."\"/>
+			value=\"".(isset($_SESSION['user']['name'])?$_SESSION['user']['name']:'')."\"/>
 		<span>И как с вами связаться</span>
 		<input type=\"text\" required name=\"contact\" 
 			placeholder=\"например: +7 900 800 70 60, company@mail.com \"
-			value=\"".(isset($_SESSION['contact'])?$_SESSION['contact']:'')."\"/>
+			value=\"".(isset($_SESSION['user']['contact'])?$_SESSION['user']['contact']:'')."\"/>
 		<span>Ваше ультра - выгодное предложение</span>
-		<textarea rows=\"6\" name=\"text\"/>".(isset($_SESSION['text'])?$_SESSION['text']:'')."</textarea>
+		<textarea rows=\"6\" name=\"text\"/>".(isset($_SESSION['user']['text'])?$_SESSION['user']['text']:'')."</textarea>
 		<a class=\"submit\">Отправить ваше предложение</a>
 		</form>";
 }
