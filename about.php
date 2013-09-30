@@ -9,7 +9,6 @@
 <?php
 	include($_SERVER['DOCUMENT_ROOT'].'/components/topline.php');
 ?>
-
 <div class="sheet">
 	<a href="/" id="main_logo">
 		<img src="/style/img/logo_tr.png"/>
@@ -28,12 +27,7 @@
 		спортивный трикотаж - костюмы, брюки, шорты; 
 		джемперы, халаты, юбки, блузки.</p> 
 	</div>
-
-
-
 </div>
-
-
 <div class="blueberry">
   	<ul class="slides">
    	<li><img src="/img/slider/1.jpg" /></li>
@@ -53,8 +47,6 @@
 		</ul>
 	</div>
 </div>
-
-
 <div id="partnership" class="section clearfix">
     <div class="img">
 		<img class="ico" src="/style/img/businessman.png"/>
@@ -63,50 +55,77 @@
     </div>
 
 	<div class="quote">
-		<?php 
-		if(!empty($_GET)){
-			if ($_GET['status']  == 0){
-				echo '<h1>Спасибо за предложение</h1>
-				<p>Ваше запрос	 уже на пути к нам.</p>';
-			}else{
-			echo'
-				<h1>Будем сотрудничать?</h1>
-		     	<p>Наверняка у вас есть интересное предложение, которое сможет нас заинтересовать.</p>
+<?php 
+if (isset($_SESSION['message'])){
+	if ($_SESSION['message'] == 'success') {
+		//если сообщение успешно отправленно
+		echo " <h1>Спасибо за предложение</h1>
+		<p>Ваше запрос	 уже на пути к нам.</p>" ;
 
-		      <form class="clearfix" action="/sent_partnership.php" method="POST">
-		 		<span>Мы хотели бы знать кто вы</span>
-		 		<input type="text" required name="name" placeholder="напр: ООО Компания " value="'.(isset($_GET['name'])?$_GET['name']:'').'"/>';
-				if ($_GET['status'] == 1){
-					echo '<div class="message alert"><p>Пожалуйста, представьтесь</p></div>';
-				}
-		 		echo '<span>И как с вами связаться</span>
-		 		<input type="text" required name="contact" placeholder="напр: +7 900 800 70 60, company@mail.com " value="'.(isset($_GET['contact'])?$_GET['contact']:'').'"/>';
-				if ($_GET['status'] == 2){
-					echo '<div class="message alert"><p>Укажите ваши контактные данные</p></div>';
-				}
-				echo '<span>Ваше ультра - выгодное предложение</span>
-				<textarea rows="6" name="text" />'.(isset($_GET['text'])?$_GET['text']:'').'</textarea>
-				<a class="submit">Отправить ваше предложение</a>
-				</form>';
-			}
+	}else if($_SESSION['message'] == 'error') {
+		//если есть ошибка
+		echo "<h1>Будем сотрудничать?</h1>
+		<p>Наверняка у вас есть интересное предложение, которое сможет нас заинтересовать.</p>
+		<form class=\"clearfix\" action=\"/mail/partner.php\" method=\"POST\">";
+		
+		if( !empty($_SESSION['name']) ){
+			echo "<span>Мы хотели бы знать кто вы</span>
+			<input type=\"text\" required name=\"name\" 
+				placeholder=\"например: ООО 'Активная компания' \" 
+				value=\"".(isset($_SESSION['name'])?$_SESSION['name']:'')."\"/>";
 		}else{
-			echo '
-			<h1>Будем сотрудничать?</h1>
-			<p>Наверняка у вас есть интересное предложение, которое сможет нас заинтересовать.</p>
-
-			<form class="clearfix" action="/sent_partnership.php" method="POST">
-			<span>Мы хотели бы знать кто вы</span>
-			<input type="text" required name="name" placeholder="напр: ООО Компания "/>
-			<span>И как с вами связаться</span>
-			<input type="text" required name="contact"  />
-			<span>Ваше ультра - выгодное предложение</span>
-			<textarea rows="6" name="text"/></textarea>
-			<input type="hidden" name="send"/>
-			<a class="submit">Отправить ваше предложение</a>
-			</form>';
+			echo "<div class=\"message success\"><p>Пожалуйста, представьтесь</p></div>
+			<input type=\"text\" required name=\"name\" 
+				placeholder=\"например: ООО 'Активная компания' \" />";
 		}
-		?>
-    	
+
+		if( !empty($_SESSION['contact']) ){
+			echo "<span>И как с вами связаться</span>
+			<input type=\"text\" required name=\"contact\" 
+				placeholder=\"например: +7 900 800 70 60, company@mail.com \" 
+				value=\"".(isset($_SESSION['contact'])?$_SESSION['contact']:'')."\"/>";
+		}else{
+			echo "<div class=\"message success\"><p>Укажите ваши контактные данные</p></div>
+			<input type=\"text\" required name=\"contact\" 
+				placeholder=\"например: +7 900 800 70 60, company@mail.com \"  />";
+		}
+
+		if( !empty($_SESSION['text']) ){
+			echo "<span>Ваше ультра - выгодное предложение</span>
+			<textarea rows=\"6\" name=\"text\"/>".(isset($_SESSION['text'])?$_SESSION['text']:'')."</textarea>";
+		}else{
+			echo "<div class=\"message success\"><p>А где же ваше предложение?</p></div>
+			<textarea rows=\"6\" name=\"text\"/></textarea>	";
+		}
+		echo "<a class=\"submit\">Отправить ваше предложение</a>
+		</form>";
+	}else{
+		//если не удалось отправить письмо
+		echo " <h1>Упс, похоже, что у нас какая-то неполадка.</h1>
+		<p>Пока мы занимаемся её устранением, позвоните по телефону  (8352) 30-94-33 и обсудите сотрудничество с нами</p>";
+	}
+	unset($_SESSION['message']);
+
+}else{
+	//нет сообщения
+	echo "<h1>Будем сотрудничать?</h1>
+		<p>Наверняка у вас есть интересное предложение, которое сможет нас заинтересовать.</p>
+
+		<form class=\"clearfix\" action=\"/mail/partner.php\" method=\"POST\">
+		<span>Мы хотели бы знать кто вы</span>
+		<input type=\"text\" required name=\"name\" 
+			placeholder=\"например: ООО 'Активная компания' \" 
+			value=\"".(isset($_SESSION['name'])?$_SESSION['name']:'')."\"/>
+		<span>И как с вами связаться</span>
+		<input type=\"text\" required name=\"contact\" 
+			placeholder=\"например: +7 900 800 70 60, company@mail.com \"
+			value=\"".(isset($_SESSION['contact'])?$_SESSION['contact']:'')."\"/>
+		<span>Ваше ультра - выгодное предложение</span>
+		<textarea rows=\"6\" name=\"text\"/>".(isset($_SESSION['text'])?$_SESSION['text']:'')."</textarea>
+		<a class=\"submit\">Отправить ваше предложение</a>
+		</form>";
+}
+?>
   	</div>
 </div>
 
@@ -171,7 +190,7 @@
 
 <div id="history" class="section clearfix" style="background-color: #AF414F;">
     <div class="img">
-		<img class="ico" src="/style/img/logo200w.png"/>
+		<img class="ico" src="/img/section/logo200w.png"/>
     	<p>Чебоксарский трикотаж</p>
     	<p class="small" >бренду больше полвека</p>
     </div>

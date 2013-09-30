@@ -25,3 +25,7 @@
 <link rel="stylesheet" href="style/style.css">
 
 <script src="js/js.js"></script>
+<?php
+session_start();
+// error_reporting(E_ERROR | E_WARNING | E_PARSE);
+?>
