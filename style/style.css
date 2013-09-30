@@ -295,7 +295,7 @@ p{
 }
 
 
-/* Формы 
+/* Формы */
 form span{
 	display: block;
 	font-size: 1em;
@@ -1223,9 +1223,12 @@ input,textarea,select{
 /* ------ страница История компании ------ */
 .company-timeline-toc{
 	padding:5px 0;
-	margin: 5px 0;
+	margin: 5px 1%;
 	border-top:1px solid #ccc;
 	border-bottom:1px solid #ccc;
+}
+.company-history{
+	margin:0 1%;
 }
 .company-history h2 {
 	border-bottom: 1px solid #666;
