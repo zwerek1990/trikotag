@@ -6,15 +6,15 @@ function ajaxAddToCart(id,size){
 	
 	id = id||0;
 	size=size||0;
-	if (!id || !size){ return 0 };
+	if (!id || !size){ return 0 }
 
 	return $.ajax({
-	  	type: "POST",
-	  	url: "/ajax/addToCart.php",
-	  	data: { 'id': id, 'size': size },
-	  	dataType: "html"
+        type: "POST",
+        url: "/ajax/addToCart.php",
+        data: { 'id': id, 'size': size },
+        dataType: "html"
 	}).done(function(message) {
-	  	console.log('ajax add successfully done with ',message);
+        console.log('ajax add successfully done with ',message);
 	});
 }
 
@@ -23,16 +23,16 @@ function ajaxDeleteFromCart(id,size){
 	
 	id = id||0;
 	size = size||0;
-	if (!id || !size){ return 0 };
+    if (!id || !size){ return 0 }
 
 	return $.ajax({
-	  	type: "POST",
-	  	url: "/ajax/deleteFromCart.php",
-	  	data: { 'id': id, 'size': size },
-	  	dataType: "html"
+        type: "POST",
+        url: "/ajax/deleteFromCart.php",
+        data: { 'id': id, 'size': size },
+        dataType: "html"
 	}).done(function(message) {
-	  	console.log('ajax delete successfully done with ',message);
-	  	return 1;
+        console.log('ajax delete successfully done with ',message);
+        return 1;
 	});
 }
 function ajaxUpdateCart(id,size,num){
@@ -41,7 +41,7 @@ function ajaxUpdateCart(id,size,num){
 	id = id || 0;
 	size = size || 0;
 	num = num || 0;
-	if (!id || !size){ return 0 };
+	if (!id || !size){ return 0 }
 
 	$.ajax({
 		type: "POST",
@@ -85,8 +85,8 @@ $(document).ready(function(){
 		helpers: {
 			buttons	: {},
 			title: {
-            	type: 'inside',
-        	}
+                type: 'inside',
+            }
 		}
 	});
 
@@ -97,20 +97,20 @@ $(document).ready(function(){
 		helpers: {
 			// buttons	: {},
 			title: {
-            	type: 'inside',
-        	}
+                type: 'inside',
+            }
 		}
 	});
 
 	// отправка формы ------
 	$('.submit').on('click',function(){
 		$(this).parent('form').submit();
-	})
+	});
 
 	// закроем сообщения ------
 	$('.message').on('click',function(){
 		$(this).hide();
-	})
+	});
 
 	// card_list ------
 	$('ul.card_list li').on('click',function(){
@@ -125,22 +125,22 @@ $(document).ready(function(){
 
 
     // эффект параллакса ------        
-   	$('.section').each(function(){
-     var $parallax_obj = $(this); // Назначаем объект
+    $('.section').each(function(){
+        var $parallax_obj = $(this); // Назначаем объект
                     
-      	$(window).scroll(function() {
+        $(window).scroll(function() {
 			var yPos = -($window.scrollTop() / 10); 
 			var coords = yPos + 'px';
 			$parallax_obj.css({ backgroundPositionY: coords });
 		}); 
- 	});	
+    });	
 
-   	function hover_change(element){
-   		var temp = element.getAttribute('data-hover');
-   		element['data-hover'] = element.src;
-   		element.src = temp;
-   		console.log('change',element.src,element['data-hover'])
-   	}
+    function hover_change(element){
+        var temp = element.getAttribute('data-hover');
+        element['data-hover'] = element.src;
+        element.src = temp;
+        console.log('change',element.src,element['data-hover']);
+    }
 
 
 	/*------ Работа с корзиной ------*/
@@ -151,8 +151,8 @@ $(document).ready(function(){
 		clearTimeout(timeout_button_active);
 		$('.to_cart').removeClass('success')
 			.addClass('active')
-			.html('Добавить в заказ<span>Всего за '+price+'</span>')
-	})
+			.html('Добавить в заказ<span>Всего за '+price+'</span>');
+	});
 
 
 	// добавить в карзину
@@ -166,8 +166,8 @@ $(document).ready(function(){
 			timeout_button_active = setTimeout(function(){
 				$('.to_cart').removeClass('success')
 					.addClass('active')
-					.html('Добавить в заказ<span>Всего за '+$('#product_price').html()+'</span>')
-			},2000)
+					.html('Добавить в заказ<span>Всего за '+$('#product_price').html()+'</span>');
+			},2000);
 		}
 
 	});
@@ -186,14 +186,14 @@ $(document).ready(function(){
 		$this.val(num);
 
 		ajaxUpdateCart(id,size,num);
-	})
+	});
 
-   	// удаления
-   	$('.delete').on('click',function(){
-		var $deleting_item = $(this).parent('li');
-   		ajaxDeleteFromCart($deleting_item.data('id'),$deleting_item.data('size'))
-   		$deleting_item.slideUp('slow');
-   	})
+    // удаления
+    $('.delete').on('click',function(){
+        var $deleting_item = $(this).parent('li');
+        ajaxDeleteFromCart($deleting_item.data('id'),$deleting_item.data('size'));
+        $deleting_item.slideUp('slow');
+    });
 
 });
 
