@@ -120,13 +120,77 @@
 			<p class="small" >с чувством юмора</p>
 		</div>
 	  <div class="quote">
-		 <h1>Оставь свой отзыв</h1>
-		 <form class="clearfix">
-			<span>Фамилия и имя</span><input type="text" name="name" placeholder="напр: Смирнов Антон"/>
-			<span>Город</span><input type="text" name="city" placeholder="напр: Чебоксары"/>
-			<span>Отзыв</span><textarea rows="10" name=""/></textarea>
-			<a class="submit">Поделиться отзывом</a>
-		 </form>
+
+<?php 
+if (isset($_SESSION['user']['message'])){
+	if ($_SESSION['user']['message'] == 'success') {
+		//если сообщение успешно отправленно
+		echo " <h1>Спасибо за мнение</h1>
+		<p>Мы трепетно относимся к каждому отзыву.</p>" ;
+
+	}else if($_SESSION['user']['message'] == 'error') {
+		//если есть ошибка
+		echo "<h1>Оставь свой отзыв</h1>
+		<form class=\"clearfix\" action=\"/mail/review.php\" method=\"POST\">";
+		
+		if( !empty($_SESSION['user']['name']) ){
+			echo "<span>Представьтесь, пожалуйста</span>
+			<input type=\"text\" required name=\"name\" 
+				placeholder=\"напр: Смирнов Антон\" 
+				value=\"".(isset($_SESSION['user']['name'])?$_SESSION['user']['name']:'')."\"/>";
+		}else{
+			echo "<div class=\"message success\"><p>Представьтесь, пожалуйста</p></div>
+			<input type=\"text\" required name=\"name\" 
+				placeholder=\"напр: Смирнов Антон\" />";
+		}
+
+		if( !empty($_SESSION['user']['contact']) ){
+			echo "<span>И как с вами связаться</span>
+			<input type=\"text\" required name=\"contact\" 
+				placeholder=\"например: +7 900 800 70 60, happy_man@mail.com \" 
+				value=\"".(isset($_SESSION['user']['contact'])?$_SESSION['user']['contact']:'')."\"/>";
+		}else{
+			echo "<div class=\"message success\"><p>Укажите ваши контактные данные</p></div>
+			<input type=\"text\" required name=\"contact\" 
+				placeholder=\"например: +7 900 800 70 60, happy_man@mail.com \"  />";
+		}
+
+		if( !empty($_SESSION['user']['review']) ){
+			echo "<span>Отзыв</span>
+			<textarea rows=\"6\" name=\"review\"/>".(isset($_SESSION['user']['review'])?$_SESSION['user']['review']:'')."</textarea>";
+		}else{
+			echo "<div class=\"message success\"><p>Вы настолько немногословны? Напишите хоть что-нибудь.</p></div>
+			<textarea rows=\"6\" name=\"review\"/></textarea>	";
+		}
+		echo "<a class=\"submit\">Поделиться отзывом</a>
+		</form>";
+	}else{
+		//если не удалось отправить письмо
+		echo " <h1>Упс, похоже, что у нас какая-то неполадка.</h1>
+		<p>Пока мы занимаемся её устранением, позвоните по телефону  (8352) 30-94-33 и передайте ваш отзыв лично.</p>";
+	}
+	unset($_SESSION['user']['message']);
+	unset($_SESSION['user']['review']);
+
+}else{
+	//нет сообщения
+	echo "<h1>Оставь свой отзыв</h1>
+		<form class=\"clearfix\" action=\"/mail/review.php\" method=\"POST\">
+		<span>Представьтесь, пожалуйста</span>
+		<input type=\"text\" required name=\"name\" 
+			placeholder=\"напр: Смирнов Антон\" 
+			value=\"".(isset($_SESSION['user']['name'])?$_SESSION['user']['name']:'')."\"/>
+		<span>И как с вами связаться</span>
+		<input type=\"text\" required name=\"contact\" 
+			placeholder=\"например: +7 900 800 70 60, happy_man@mail.com \"
+			value=\"".(isset($_SESSION['user']['contact'])?$_SESSION['user']['contact']:'')."\"/>
+		<span>Отзыв</span>
+		<textarea rows=\"6\" name=\"review\"/>".(isset($_SESSION['user']['review'])?$_SESSION['user']['review']:'')."</textarea>
+		<a class=\"submit\">Поделиться отзывом</a>
+		</form>";
+}
+?>
+
 	  </div>
    </li>
 

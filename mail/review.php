@@ -32,5 +32,5 @@ if (!empty($_POST)) {
 }else{
 	$_SESSION['user']['message'] = 'error';
 }
-header('Location:'.$_SERVER['HTTP_ORIGIN'].'/about.php#partnership');
+header('Location:'.$_SERVER['HTTP_ORIGIN'].'/collections.php#make_review');
 ?>
