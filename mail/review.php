@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     }else{
     	//формируем письмо
     	$to = 'zwerek1990@gmail.com';
-    	$subject = 'Благодарный отзыв';
+    	$subject = 'Отзыв';
     	
     	$message=$_POST['name'] . "\n";
     	$message.="Контактные данные: " . $_POST['contact']."\nОтзыв:\n";
