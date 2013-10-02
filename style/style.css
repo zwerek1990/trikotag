@@ -300,9 +300,6 @@ form span{
 	display: block;
 	font-size: 1em;
 }
-form span:after{
-	content: ': ';
-}
 input,textarea,select{
 	padding: 15px 10px;
 	display: block;
@@ -727,25 +724,25 @@ input,textarea,select{
 	cursor: pointer;
 }
 .message p{
-	color: inherit;
+	color: #fff !important;
 }
 .alert{
-	background: #F1690F;
+	background: #B6814F !important;
 }
 .alert:hover{
-	background: #F1690F;
+	background: #B07140 !important;
 }
 .success{
-	background: #2ECC71;
+	background: #39A567  !important;
 }
 .success:hover{
-	background: #2ECC71;
+	background: #30A060  !important;
 }
 .error{
-	background: #E74C3C;
+	background: #E74C3C !important;
 }
 .error:hover{
-	background: #E74C3C;
+	background: #D74030 !important;
 }
 
 
