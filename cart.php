@@ -47,7 +47,7 @@ foreach ($_SESSION['cart'] as $id => $article) {
 
 
 <div class="sheet">
-	<h2>Возможно, вас заинтересует:</h2>
+	<h2>Возможно, вас заинтересует</h2>
 	<?php
 		include($_SERVER['DOCUMENT_ROOT']."/components/goods_gallery.php");
 	?> 
