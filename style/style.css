@@ -1499,7 +1499,7 @@ input,textarea,select{
 
 /* мелкие слева от большой */
 #good_preview{
-	width: 14%;
+	width: 9%;
 	float:left;
 	margin-right: 1%;
 }
@@ -1510,13 +1510,13 @@ input,textarea,select{
 #good_preview .s_gallery li{
 	float: none;
 	width: 100%;
-	margin: 0 0 5px 0;
+	margin: 0 0 10px 0;
 }
 
 
 /* большая картинка */
 #good_image{
-	width: 34%;
+	width: 39%;
 	float:left;
 	margin-right: 1%;
 }
@@ -1533,8 +1533,11 @@ input,textarea,select{
 
 
 /* Логотип */
+#product_brand{
+	line-height: 1em;
+}
 #product_brand a{
-	font-size: .9em;
+	font-size: .75em;
 	text-align: center;
 	text-decoration: underline;
 }
@@ -1657,7 +1660,7 @@ input,textarea,select{
 	border-right-color:#2ECC71; 
 }
 #good_desc .price.success:hover:after{
-	border-right-color:#2ECC71; 
+	border-right-color:#30A060 ; 
 }
 
 
