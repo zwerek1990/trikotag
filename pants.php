@@ -10,7 +10,7 @@
 	include($_SERVER['DOCUMENT_ROOT']."/components/topline.php");
 ?> 
 <?php
-session_start();
+
 if (isset($_SESSION['cart'])){
 		foreach ($_SESSION['cart'] as $id => $article) {
 			foreach($article as $size => $num){
@@ -24,6 +24,7 @@ if (isset($_SESSION['cart'])){
 		<p>В корзине товаров на <span> 12312 р.</span></p>
 	</a>
 </div>
+
 <div class="sheet clearfix">
 	<div id="good_preview">
 		<ul class="s_gallery clearfix">
@@ -35,7 +36,7 @@ if (isset($_SESSION['cart'])){
 					rel="gallery" 
 					class="fancybox" 
 					title="">
-					<img  src="img/collections/traditions/thumbs/'.rand(12,24).'.jpg"/>
+					<img  src="style/img/100x100.jpg"/>
 					</a>
 				</li>';
 			}
@@ -44,8 +45,8 @@ if (isset($_SESSION['cart'])){
 	</div>
 
 	<div id="good_image">
-		<a href="img/collections/school/full/2.jpg" rel="gallery" class="fancyfull" title="">
-			<img src="img/collections/traditions/thumbs/<?php echo rand(12,24);?>.jpg"/>
+		<a href="style/img/375x800.jpg" rel="gallery" class="fancyfull" title="">
+			<img src="style/img/375x800.jpg"/>
 		</a>
 	</div>
 	
@@ -53,8 +54,8 @@ if (isset($_SESSION['cart'])){
 		<div id="product_brand">
 			<div class="logo" >
 				<a href="/traditions.php" title="Посмотреть каталог товаров traditions">
-					<img src="/img/collections/traditions/traditions.png"/>
-					<img class="hide" src="/img/collections/traditions/traditionsH.png"/>
+					<img src="/img/collections/inside-out/logo-line.png"/>
+					<img class="hide" src="/img/collections/inside-out/logo-lineH.png"/>
 				</a>
 			</div>
 			<a href="/traditions.php" title="Посмотреть каталог товаров traditions">
