@@ -1712,7 +1712,6 @@ input,textarea,select{
 	}
 	#good_preview .s_gallery li {
 		width: 16.5%;
-		max-height: 100px;
 		float: left;
 		margin: 0;
 	}
